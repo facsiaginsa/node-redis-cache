@@ -7,4 +7,4 @@ const redis = new Redis({
     password: redisConfig.pass,
 });
 
-module.exports - redis
+module.exports = redis
