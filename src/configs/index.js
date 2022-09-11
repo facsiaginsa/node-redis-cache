@@ -3,6 +3,7 @@ require("dotenv").config()
 module.exports = {
     port: parseInt(process.env.PORT) || 3000,
     host: process.env.HOST || "0.0.0.0",
+    cacheExpired: process.env.CACHE_EXPIRED,
     redisConfig: {
         host: process.env.REDIS_HOST || "127.0.0.1",
         port: process.env.REDIS_PORT || "6379",

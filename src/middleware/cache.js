@@ -4,7 +4,7 @@ const findAllProductsOnCache = async (req, res) => {
 
     let product = await getCache("product-all")
     
-    if (product != "null") {
+    if (product && product != "null") {
         res.status(200).send({
             message: "get all products success from cache",
             products: product
@@ -14,11 +14,12 @@ const findAllProductsOnCache = async (req, res) => {
 }
 
 const findProductOnCache = async (req, res) => {
+
     const productId = req.params.id
 
     let product = await getCache("product-" + productId)
     
-    if (product != "null") {
+    if (product && product != "null") {
         res.status(200).send({
             message: "get all products success from cache",
             products: product

@@ -1,3 +1,4 @@
+const { cacheExpired } = require("../configs")
 const redis = require("../loaders/redis")
 
 const getCache = async (key) => {
@@ -11,7 +12,7 @@ const setCache = async (key, value) => {
     
     let stringifiedValue = JSON.stringify(value)
 
-    return await redis.set(key, stringifiedValue)
+    return await redis.setex(key, cacheExpired, stringifiedValue)
 }
 
 module.exports = {
